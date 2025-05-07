@@ -1,17 +1,16 @@
-# Usa una imagen base de Python
-FROM python:3.8-slim
+FROM python:3.8
+ENV PYTHONUNBUFFERED=1
 
-# Establece el directorio de trabajo
-WORKDIR /app
+WORKDIR /code
 
-# Copia los archivos de la aplicación al contenedor
-COPY . /app/
+COPY requirements.txt .
 
-# Instala las dependencias
-RUN pip install --no-cache-dir -r requirements.txt
+# Actualiza pip e instala las dependencias en un solo paso
+RUN python -m pip install --upgrade pip && \
+    pip install -r requirements.txt
 
-# Expón el puerto 8000 para que se pueda acceder a la API
+COPY . .
+
 EXPOSE 8000
 
-# Comando para ejecutar la aplicación usando Gunicorn
 CMD ["gunicorn", "taskmanager.wsgi:application", "--bind", "0.0.0.0:8000"]
