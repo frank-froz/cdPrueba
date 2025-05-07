@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--rw6b6!s7tiqfume#n1iq_dmvhx4rx)l4^hekz4=%xmbwb8q5+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['prueba-miapi.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['cdprueba.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
