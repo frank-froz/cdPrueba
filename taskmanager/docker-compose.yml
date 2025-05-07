@@ -1,12 +1,11 @@
-version: '3'
-
 services:
   app:
     image: fhuaytalla/mi_api:latest
     build: .
     container_name: django
-    command: gunicorn taskmanager.wsgi:application --bind 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
+      
+.:/code
+  ports:
+"8000:8000"
